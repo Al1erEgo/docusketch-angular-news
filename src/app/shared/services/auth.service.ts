@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { JwtService } from './jwt.service'
 import { Router } from '@angular/router'
 import { CommonAuthRequest, CommonAuthResponse, User } from '../interfaces/auth.interfaces'
 import { Observable, tap } from 'rxjs'
+import { SessionStorageService } from './session-storage.service'
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -12,9 +12,14 @@ export class AuthService {
 
   constructor(
     private readonly http: HttpClient,
-    private readonly jwtService: JwtService,
+    private readonly sessionStorageService: SessionStorageService,
     private readonly router: Router
   ) {}
+
+  initUser(): void {
+    this.currentUser = this.sessionStorageService.getUserData()?.user || null
+    this.currentToken = this.sessionStorageService.getUserData()?.accessToken || null
+  }
 
   login(credentials: CommonAuthRequest): Observable<CommonAuthResponse> {
     return this.http
@@ -28,29 +33,19 @@ export class AuthService {
       .pipe(tap(authData => this.setAuth(authData)))
   }
 
-  // getCurrentUser(): Observable<{ user: User }> {
-  //   return this.http.get<{ user: User }>('/user').pipe(
-  //     tap({
-  //       next: ({ user }) => this.setAuth(user),
-  //       error: () => this.purgeAuth(),
-  //     }),
-  //     shareReplay(1)
-  //   )
-  // }
-
   logout(): void {
     this.purgeAuth()
     void this.router.navigate(['/'])
   }
 
   setAuth(authData: CommonAuthResponse): void {
-    this.jwtService.saveToken(authData.accessToken)
+    this.sessionStorageService.saveUserData(authData)
     this.currentUser = authData.user
     this.currentToken = authData.accessToken
   }
 
   purgeAuth(): void {
-    this.jwtService.destroyToken()
+    this.sessionStorageService.cleanUserData()
     this.currentUser = null
     this.currentToken = null
   }
