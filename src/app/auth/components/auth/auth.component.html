@@ -1,0 +1,45 @@
+<div class="card">
+  <h2 class="title">{{ title }}</h2>
+  <form [formGroup]="authForm" (ngSubmit)="submitForm()">
+    <fieldset class="form-field" [disabled]="isSubmitting">
+      <fieldset class="form-field">
+        <input
+          autocomplete="email"
+          formControlName="email"
+          placeholder="Email"
+          type="text"
+          [class.inputError]="email!.invalid && (email!.dirty || email!.touched)" />
+        <div *ngIf="email!.invalid && (email!.dirty || email!.touched)" class="error">
+          <div *ngIf="email!.errors?.['required']">Email is required</div>
+          <div *ngIf="email!.errors?.['email']">Email incorrect pattern</div>
+        </div>
+      </fieldset>
+      <fieldset class="form-field">
+        <input
+          autocomplete="current-password"
+          formControlName="password"
+          placeholder="Password"
+          type="password"
+          [class.inputError]="password!.invalid && (password!.dirty || password!.touched)" />
+        <div *ngIf="password!.invalid && (password!.dirty || password!.touched)" class="error">
+          <div *ngIf="password!.errors?.['required']">Password is required</div>
+          <div *ngIf="password!.errors?.['email']">Password must be at least 8 characters long</div>
+        </div>
+      </fieldset>
+      <button
+        class="btn btn-lg btn-primary pull-xs-right"
+        [disabled]="!authForm.valid"
+        type="submit">
+        {{ title }}
+      </button>
+    </fieldset>
+  </form>
+  <p>
+    <a class="link" *ngIf="authType === 'register'" [routerLink]="['../login']">
+      Have an account?
+    </a>
+    <a class="link" *ngIf="authType === 'login'" [routerLink]="['../register']">
+      Need an account?
+    </a>
+  </p>
+</div>
