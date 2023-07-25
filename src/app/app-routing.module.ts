@@ -8,13 +8,13 @@ const appRoutes: Routes = [
     loadChildren: () => import('./news/news.module').then(m => m.NewsModule),
   },
   {
-    path: 'login',
+    path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
   },
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'login',
+    redirectTo: 'auth',
   },
   {
     path: '**',
