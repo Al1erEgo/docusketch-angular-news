@@ -4,4 +4,30 @@
   align-items: center;
   box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
   padding: 15px;
+
+  .user-info {
+    color: #3a76a4;
+    font-size: 0.8rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    button {
+      background-color: #9fbcd3;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      padding: 7px;
+
+      &:hover {
+        background-color: #7fb0cc;
+      }
+
+      &:active {
+        background-color: #1388c9;
+      }
+    }
+  }
 }

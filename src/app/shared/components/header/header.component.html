@@ -6,5 +6,8 @@
     <p>News</p>
     <p>Subscriptions</p>
   </div>
-  <div>Login\Logout</div>
+  <div class="user-info">
+    <span *ngIf="userEmail"> Hello, {{ userEmail }}! </span>
+    <button *ngIf="userEmail" (click)="logout()">Logout</button>
+  </div>
 </div>

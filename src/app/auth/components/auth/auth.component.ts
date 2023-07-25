@@ -78,6 +78,7 @@ export class AuthComponent implements OnInit, OnDestroy {
     observable.pipe(takeUntil(this.destroy$)).subscribe({
       next: () => this.router.navigate(['/']),
 
+      //TODO обработка ошибки тут ненужна?
       error: err => {
         this.errors = err
         this.isSubmitting = false
