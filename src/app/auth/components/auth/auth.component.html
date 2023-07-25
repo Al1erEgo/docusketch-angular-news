@@ -26,10 +26,7 @@
           <div *ngIf="password!.errors?.['email']">Password must be at least 8 characters long</div>
         </div>
       </fieldset>
-      <button
-        class="btn btn-lg btn-primary pull-xs-right"
-        [disabled]="!authForm.valid"
-        type="submit">
+      <button [disabled]="!authForm.valid || isSubmitting" type="submit">
         {{ title }}
       </button>
     </fieldset>

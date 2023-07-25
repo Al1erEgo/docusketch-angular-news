@@ -55,16 +55,17 @@
         border-radius: 5px;
         padding: 5px;
 
-        &:disabled {
-          opacity: 50%;
-        }
-
         &:hover {
           background-color: #7fb0cc;
         }
 
         &:active {
           background-color: #1388c9;
+        }
+
+        &:disabled {
+          opacity: 50%;
+          background-color: #7fb0cc;
         }
       }
     }

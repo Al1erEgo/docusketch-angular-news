@@ -76,7 +76,8 @@ export class AuthComponent implements OnInit, OnDestroy {
           )
 
     observable.pipe(takeUntil(this.destroy$)).subscribe({
-      next: () => void this.router.navigate(['/']),
+      next: () => this.router.navigate(['/']),
+
       error: err => {
         this.errors = err
         this.isSubmitting = false
