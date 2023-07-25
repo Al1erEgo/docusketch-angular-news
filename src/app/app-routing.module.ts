@@ -14,7 +14,7 @@ const appRoutes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'auth',
+    redirectTo: 'news',
   },
   {
     path: '**',

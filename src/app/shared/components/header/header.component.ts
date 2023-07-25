@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { AuthService } from '../../services/auth.service'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,10 @@ import { AuthService } from '../../services/auth.service'
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   get userEmail(): string | undefined {
     return this.authService.currentUser?.email
@@ -15,5 +19,9 @@ export class HeaderComponent {
 
   logout(): void {
     this.authService.logout()
+  }
+
+  navigateToLogin(): void {
+    this.router.navigate(['/auth/login'])
   }
 }
