@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
-import { AuthService } from '../../services/auth.service'
 import { ActivatedRoute, Router } from '@angular/router'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { Subject, takeUntil } from 'rxjs'
+import { CommonAuthResponse } from '../../interfaces/auth.interfaces'
+import { AuthService } from '../../services/auth.service'
 import { NotificationService } from '../../../shared/services/notification.service'
 
 interface AuthForm {
@@ -78,7 +79,7 @@ export class AuthComponent implements OnInit, OnDestroy {
           )
 
     observable.pipe(takeUntil(this.destroy$)).subscribe({
-      next: res => {
+      next: (res: CommonAuthResponse) => {
         this.notificationService.handleNotification(`Welcome ${res.user.email}`, 'success')
         this.router.navigate(['/'])
       },
