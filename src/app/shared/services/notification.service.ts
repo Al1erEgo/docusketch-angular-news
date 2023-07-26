@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { BehaviorSubject } from 'rxjs'
 import { Notify, Severity } from '../interfaces/notify.interfaces'
 
+//TODO сделать автозакрытие всплывашки через 5сек
 @Injectable({
   providedIn: 'root',
 })

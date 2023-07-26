@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth.service'
 import { ActivatedRoute, Router } from '@angular/router'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { Subject, takeUntil } from 'rxjs'
+import { NotificationService } from '../../../shared/services/notification.service'
 
 interface AuthForm {
   email: FormControl<string>
@@ -29,7 +30,8 @@ export class AuthComponent implements OnInit, OnDestroy {
   constructor(
     private readonly route: ActivatedRoute,
     private readonly router: Router,
-    private readonly authService: AuthService
+    private readonly authService: AuthService,
+    private readonly notificationService: NotificationService
   ) {
     this.authForm = new FormGroup<AuthForm>({
       email: new FormControl('', {
@@ -76,12 +78,9 @@ export class AuthComponent implements OnInit, OnDestroy {
           )
 
     observable.pipe(takeUntil(this.destroy$)).subscribe({
-      next: () => this.router.navigate(['/']),
-
-      //TODO обработка ошибки тут ненужна?
-      error: err => {
-        this.errors = err
-        this.isSubmitting = false
+      next: res => {
+        this.notificationService.handleNotification(`Welcome ${res.user.email}`, 'success')
+        this.router.navigate(['/'])
       },
     })
   }

@@ -1,0 +1,37 @@
+.notification {
+  position: fixed;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+
+  .notification-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-size: 0.85rem;
+  }
+
+  .notification-item-success {
+    background-color: #6ed76e;
+  }
+
+  .notification-item-error {
+    background-color: #d31616;
+  }
+
+  .notification-item-info {
+    background-color: #e1cf12;
+  }
+
+  .notification-close {
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 0.85rem;
+  }
+}

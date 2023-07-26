@@ -7,7 +7,7 @@
     <p>Subscriptions</p>
   </div>
   <div class="user-info">
-    <span *ngIf="userEmail"> Hello, {{ userEmail }}! </span>
+    <span *ngIf="userEmail"> User: {{ userEmail }} </span>
     <button *ngIf="userEmail" (click)="logout()">Logout</button>
     <button *ngIf="!userEmail" (click)="navigateToLogin()">Login</button>
   </div>
