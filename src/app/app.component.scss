@@ -1,5 +1,12 @@
 :host {
   display: block;
   height: 100%;
+
+  .page-container {
+    max-height: calc(100% - 75px);
+    overflow: auto;
+  }
 }
+
+
 

@@ -1,5 +1,4 @@
+<p>News {{ news.length }}</p>
 <div>
-  <p *ngFor="let article of news$ | async">
-    {{ article.title }}
-  </p>
+  <app-article-preview *ngFor="let article of news" [article]="article"></app-article-preview>
 </div>

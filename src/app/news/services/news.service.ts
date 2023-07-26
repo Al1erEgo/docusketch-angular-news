@@ -9,7 +9,6 @@ export class NewsService {
   constructor(private readonly http: HttpClient) {}
 
   getNews() {
-    //this.http.get<Article[]>('news').subscribe(res => (this.news = res))
     return this.http.get<Article[]>('news')
   }
 }
