@@ -1,3 +1,17 @@
 <div class="news-container">
-  <app-article-preview *ngFor="let article of news" [article]="article"></app-article-preview>
+  <nav>
+    <button
+      [class.active]="currentCategory === category"
+      *ngFor="let category of categories"
+      (click)="changeCategory(category)">
+      {{ category }}
+    </button>
+  </nav>
+  <form [formGroup]="filterForm">
+    <input type="text" formControlName="title" placeholder="Search article" />
+  </form>
+
+  <app-article-preview
+    *ngFor="let article of newsToRender | searchPipe: (debouncedControl$ | async)"
+    [article]="article"></app-article-preview>
 </div>

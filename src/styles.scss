@@ -27,5 +27,26 @@ html {
       color: #63a6e0;
     }
   }
+
+  button {
+    background-color: #9fbcd3;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 7px;
+
+    &:hover {
+      background-color: #7fb0cc;
+    }
+
+    &:active {
+      background-color: #1388c9;
+    }
+
+    &:disabled {
+      opacity: 50%;
+      background-color: #7fb0cc;
+    }
+  }
 }
 

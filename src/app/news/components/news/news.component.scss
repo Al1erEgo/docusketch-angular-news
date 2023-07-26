@@ -5,6 +5,21 @@
   gap: 10px;
   padding: 15px;
   align-items: center;
+
+  input {
+    height: 25px;
+    width: 50vw;
+    padding-left: 10px;
+  }
+
+  nav {
+    display: flex;
+    gap: 10px;
+  }
+
+  .active {
+    background-color: #6ed76e;
+  }
 }
 
 

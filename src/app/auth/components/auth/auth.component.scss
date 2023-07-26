@@ -43,27 +43,6 @@
       .inputError {
         background-color: #fdcbcb;
       }
-
-      button {
-        background-color: #9fbcd3;
-        color: black;
-        border: none;
-        border-radius: 5px;
-        padding: 5px;
-
-        &:hover {
-          background-color: #7fb0cc;
-        }
-
-        &:active {
-          background-color: #1388c9;
-        }
-
-        &:disabled {
-          opacity: 50%;
-          background-color: #7fb0cc;
-        }
-      }
     }
 
     .link {

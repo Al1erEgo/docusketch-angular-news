@@ -10,6 +10,6 @@ import { NotificationComponent } from './components/notification/notification.co
   declarations: [Page404Component, HeaderComponent, NotificationComponent, SubscriptionsComponent],
   imports: [CommonModule, NgOptimizedImage, RouterLink, RouterLinkActive],
   providers: [],
-  exports: [HeaderComponent, NotificationComponent],
+  exports: [HeaderComponent, NotificationComponent, SubscriptionsComponent],
 })
 export class SharedModule {}
