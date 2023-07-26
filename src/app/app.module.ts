@@ -9,8 +9,8 @@ import { ApiInterceptor } from './shared/interceptors/api.interceptor'
 import { TokenInterceptor } from './shared/interceptors/token.interceptor'
 import { ErrorInterceptor } from './shared/interceptors/error.interceptor'
 import { SessionStorageService } from './auth/services/session-storage.service'
-import { AuthService } from './auth/services/auth.service'
 import { EMPTY } from 'rxjs'
+import { AuthService } from './auth/services/auth.service'
 
 export function initAuth(sessionStorage: SessionStorageService, authService: AuthService) {
   return () => (sessionStorage.getUserData() ? authService.initUser() : EMPTY)

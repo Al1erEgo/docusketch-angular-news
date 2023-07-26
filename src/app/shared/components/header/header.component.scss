@@ -5,8 +5,23 @@
   box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
   padding: 15px;
 
+  nav {
+    display: flex;
+    gap: 15px;
+
+    a {
+      font-size: 1rem;
+      text-decoration: none;
+      color: #3a76a4;
+
+      &.active {
+        color: #2b5879;
+      }
+    }
+  }
+
+
   .user-info {
-    color: #3a76a4;
     font-size: 0.8rem;
 
     display: flex;

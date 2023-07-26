@@ -6,6 +6,8 @@ import { CommonAuthResponse } from '../../interfaces/auth.interfaces'
 import { AuthService } from '../../services/auth.service'
 import { NotificationService } from '../../../shared/services/notification.service'
 
+//TODO убрать disable формы на неуспешный логин
+//TODO показать ошибку если пароль недостаточно длинный
 interface AuthForm {
   email: FormControl<string>
   password: FormControl<string>
