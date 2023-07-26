@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { BehaviorSubject } from 'rxjs'
 import { Article } from '../interfaces/news.interfaces'
 
 @Injectable()
 export class NewsService {
-  news$ = new BehaviorSubject<Article[]>([])
+  news: Article[] = []
 
   constructor(private readonly http: HttpClient) {}
 
-  getNews() {}
+  getNews() {
+    //this.http.get<Article[]>('news').subscribe(res => (this.news = res))
+    return this.http.get<Article[]>('news')
+  }
 }

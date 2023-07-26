@@ -1,1 +1,5 @@
-<p>news works!</p>
+<div>
+  <p *ngFor="let article of news$ | async">
+    {{ article.title }}
+  </p>
+</div>

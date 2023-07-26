@@ -5,12 +5,12 @@ import { AppComponent } from './app.component'
 import { SharedModule } from './shared/shared.module'
 import { AppRoutingModule } from './app-routing.module'
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
-import { ApiInterceptor } from './shared/interceptors/api.interceptor'
-import { TokenInterceptor } from './shared/interceptors/token.interceptor'
 import { ErrorInterceptor } from './shared/interceptors/error.interceptor'
 import { SessionStorageService } from './auth/services/session-storage.service'
 import { EMPTY } from 'rxjs'
 import { AuthService } from './auth/services/auth.service'
+import { TokenInterceptor } from './shared/interceptors/token.interceptor'
+import { ApiInterceptor } from './shared/interceptors/api.interceptor'
 
 export function initAuth(sessionStorage: SessionStorageService, authService: AuthService) {
   return () => (sessionStorage.getUserData() ? authService.initUser() : EMPTY)
