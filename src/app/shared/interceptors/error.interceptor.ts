@@ -18,8 +18,10 @@ export class ErrorInterceptor implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
         if (error.error) {
           this.notificationService.handleNotification(error.error, 'error')
-        } else {
+        } else if (error.message) {
           this.notificationService.handleNotification(error.message, 'error')
+        } else {
+          this.notificationService.handleNotification('Something went wrong :(', 'error')
         }
         return throwError(error.error)
       })
