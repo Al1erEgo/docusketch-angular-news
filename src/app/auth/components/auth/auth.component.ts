@@ -83,7 +83,7 @@ export class AuthComponent implements OnInit, OnDestroy {
     observable.pipe(takeUntil(this.destroy$)).subscribe({
       next: (res: CommonAuthResponse) => {
         this.notificationService.handleNotification(`Welcome ${res.user.email}`, 'success')
-        this.router.navigate(['/'])
+        void this.router.navigate(['/'])
       },
     })
   }

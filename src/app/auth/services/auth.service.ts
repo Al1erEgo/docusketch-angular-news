@@ -4,6 +4,7 @@ import { Router } from '@angular/router'
 import { CommonAuthRequest, CommonAuthResponse, User } from '../interfaces/auth.interfaces'
 import { Observable, tap } from 'rxjs'
 import { SessionStorageService } from './session-storage.service'
+import { NotificationService } from '../../shared/services/notification.service'
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -13,7 +14,8 @@ export class AuthService {
   constructor(
     private readonly http: HttpClient,
     private readonly sessionStorageService: SessionStorageService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly notificationService: NotificationService
   ) {}
 
   initUser(): void {
@@ -33,8 +35,9 @@ export class AuthService {
       .pipe(tap(authData => this.setAuth(authData)))
   }
 
-  logout(): void {
+  logout() {
     this.purgeAuth()
+    this.notificationService.handleNotification('You`re logged out.', 'info')
     void this.router.navigate(['/'])
   }
 
