@@ -1,12 +1,28 @@
 import { Injectable } from '@angular/core'
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http'
-import { Observable, throwError } from 'rxjs'
-import { catchError } from 'rxjs/operators'
+import {
+  HttpErrorResponse,
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest,
+} from '@angular/common/http'
+import { catchError, Observable, throwError } from 'rxjs'
+import { NotificationService } from '../services/notification.service'
 
-//TODO прикрутить всплывашку для ошибок
 @Injectable({ providedIn: 'root' })
 export class ErrorInterceptor implements HttpInterceptor {
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    return next.handle(req).pipe(catchError(err => throwError(err.error)))
+  constructor(private readonly notificationService: NotificationService) {}
+
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    return next.handle(request).pipe(
+      catchError((error: HttpErrorResponse) => {
+        if (error.error) {
+          this.notificationService.handleNotification(error.error, 'error')
+        } else {
+          this.notificationService.handleNotification(error.message, 'error')
+        }
+        return throwError(error.error)
+      })
+    )
   }
 }

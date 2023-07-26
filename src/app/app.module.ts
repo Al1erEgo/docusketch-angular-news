@@ -8,8 +8,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { ApiInterceptor } from './shared/interceptors/api.interceptor'
 import { TokenInterceptor } from './shared/interceptors/token.interceptor'
 import { ErrorInterceptor } from './shared/interceptors/error.interceptor'
-import { SessionStorageService } from './shared/services/session-storage.service'
-import { AuthService } from './shared/services/auth.service'
+import { SessionStorageService } from './auth/services/session-storage.service'
+import { AuthService } from './auth/services/auth.service'
 import { EMPTY } from 'rxjs'
 
 export function initAuth(sessionStorage: SessionStorageService, authService: AuthService) {
