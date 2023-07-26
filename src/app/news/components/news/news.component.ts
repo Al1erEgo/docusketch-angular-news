@@ -3,6 +3,8 @@ import { NewsService } from '../../services/news.service'
 import { Article } from '../../interfaces/news.interfaces'
 import { Subject, takeUntil } from 'rxjs'
 
+//TODO отсортировать по дате для отрисовки
+
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',

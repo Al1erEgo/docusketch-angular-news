@@ -1,79 +1,73 @@
-:host {
+
+.card {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  min-height: 90%;
-  min-width: 100%;
+  border-radius: 10px;
+  width: 300px;
+  height: 300px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+  padding: 15px;
 
-  .card {
+  .title {
+    font-weight: 500;
+  }
+
+  .form-field {
+    border: none;
     display: flex;
+    justify-content: center;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 10px;
-    width: 300px;
-    height: 300px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
-    padding: 15px;
+    gap: 30px;
+    position: relative;
 
-    .title {
-      font-weight: 500;
+    .error {
+      font-size: 0.7rem;
+      color: red;
+      position: absolute;
+      bottom: -20px;
+      left: 5px;
     }
 
-    .form-field {
+    input {
       border: none;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      gap: 30px;
-      position: relative;
-
-      .error {
-        font-size: 0.7rem;
-        color: red;
-        position: absolute;
-        bottom: -20px;
-        left: 5px;
-      }
-
-      input {
-        border: none;
-        border-radius: 5px;
-        height: 30px;
-        width: 250px;
-        padding: 5px;
-      }
-
-      .inputError {
-        background-color: #fdcbcb;
-      }
-
-      button {
-        background-color: #9fbcd3;
-        color: black;
-        border: none;
-        border-radius: 5px;
-        padding: 5px;
-
-        &:hover {
-          background-color: #7fb0cc;
-        }
-
-        &:active {
-          background-color: #1388c9;
-        }
-
-        &:disabled {
-          opacity: 50%;
-          background-color: #7fb0cc;
-        }
-      }
+      border-radius: 5px;
+      height: 30px;
+      width: 250px;
+      padding: 5px;
     }
 
-    .link {
-      font-size: 0.9rem;
-      text-decoration: none;
-      color: #3a76a4;
+    .inputError {
+      background-color: #fdcbcb;
+    }
+
+    button {
+      background-color: #9fbcd3;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      padding: 5px;
+
+      &:hover {
+        background-color: #7fb0cc;
+      }
+
+      &:active {
+        background-color: #1388c9;
+      }
+
+      &:disabled {
+        opacity: 50%;
+        background-color: #7fb0cc;
+      }
     }
   }
+
+  .link {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: #3a76a4;
+  }
 }
+

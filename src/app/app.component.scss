@@ -1,12 +1,14 @@
-:host {
-  display: block;
-  height: 100%;
+.page-container {
+  min-height: calc(100% - 75px);
+  max-height: calc(100% - 75px);
+  overflow: auto;
 
-  .page-container {
-    max-height: calc(100% - 75px);
-    overflow: auto;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
 
 
 

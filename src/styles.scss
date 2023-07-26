@@ -13,5 +13,19 @@ html {
   body {
     height: 100%;
   }
+
+  a {
+    font-weight: 600;
+    text-decoration: none;
+    color: #3a76a4;
+
+    &.active {
+      color: #2b5879;
+    }
+
+    &:hover {
+      color: #63a6e0;
+    }
+  }
 }
 
