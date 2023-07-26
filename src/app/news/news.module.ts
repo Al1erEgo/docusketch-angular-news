@@ -8,8 +8,16 @@ import { ArticlePreviewComponent } from './components/article-preview/article-pr
 import { ReactiveFormsModule } from '@angular/forms'
 import { SearchPipe } from './pipes/search.pipe'
 
+import { ArticleComponent } from './components/article/article.component'
+
 @NgModule({
-  declarations: [NewsComponent, CreateArticleComponent, ArticlePreviewComponent, SearchPipe],
+  declarations: [
+    NewsComponent,
+    CreateArticleComponent,
+    ArticlePreviewComponent,
+    SearchPipe,
+    ArticleComponent,
+  ],
   imports: [CommonModule, NewsRoutingModule, ReactiveFormsModule],
   providers: [NewsService],
 })
