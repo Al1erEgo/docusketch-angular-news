@@ -1,0 +1,23 @@
+.article-container {
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: solid 1px #cccccc;
+  padding: 10px;
+
+  h1 {
+    color: #3a76a4;
+    font-size: 1.7rem;
+  }
+
+  .secondary {
+    color: #b4b4b4;
+    font-size: 0.9rem;
+  }
+
+  .show-comments {
+    width: 30%;
+    align-self: center;
+  }
+}

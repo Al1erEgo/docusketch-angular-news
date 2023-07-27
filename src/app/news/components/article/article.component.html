@@ -1,1 +1,9 @@
-<p>article works!</p>
+<div class="article-container">
+  <h1>{{ article?.title }}</h1>
+  <p class="secondary">{{ article?.date }}</p>
+  <p>{{ article?.body }}</p>
+  <div *ngIf="showComments">Комментарии</div>
+  <button class="show-comments" (click)="switchShowComments()">
+    {{ showComments ? 'Скрыть комментарии' : 'Показать комментарии' }}
+  </button>
+</div>

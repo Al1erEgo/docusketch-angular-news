@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { SearchPipe } from './pipes/search.pipe'
 
 import { ArticleComponent } from './components/article/article.component'
+import { CommentsService } from './services/comments.service'
 
 @NgModule({
   declarations: [
@@ -19,6 +20,6 @@ import { ArticleComponent } from './components/article/article.component'
     ArticleComponent,
   ],
   imports: [CommonModule, NewsRoutingModule, ReactiveFormsModule],
-  providers: [NewsService],
+  providers: [NewsService, CommentsService],
 })
 export class NewsModule {}
