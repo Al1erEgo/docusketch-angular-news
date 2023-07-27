@@ -17,6 +17,7 @@ export class ArticleComponent implements OnDestroy {
   comments?: Comment[]
   destroy$ = new Subject<void>()
   showComments: boolean = false
+  addComment: boolean = false
   articleId: number = +this.route.snapshot.paramMap.get('id')!
 
   constructor(
@@ -42,5 +43,12 @@ export class ArticleComponent implements OnDestroy {
 
   switchShowComments() {
     this.showComments = !this.showComments
+    if (!this.showComments) {
+      this.addComment = false
+    }
+  }
+
+  switchAddComment() {
+    this.addComment = !this.addComment
   }
 }

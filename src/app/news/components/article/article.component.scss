@@ -32,7 +32,13 @@
     }
   }
 
-  button.show-comments {
+  .buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  button.comments {
     width: 30%;
     align-self: center;
   }

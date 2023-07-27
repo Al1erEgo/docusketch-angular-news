@@ -8,8 +8,14 @@
       <p>{{ comment.body }}</p>
       <p class="secondary">{{ comment.date }}</p>
     </div>
+    <div *ngIf="addComment" class="comment">Форма добавления комментария</div>
   </div>
-  <button class="show-comments" (click)="switchShowComments()">
-    {{ showComments ? 'Скрыть комментарии' : 'Показать комментарии' }}
-  </button>
+  <div class="buttons-container">
+    <button class="comments" (click)="switchShowComments()">
+      {{ showComments ? 'Скрыть комментарии' : 'Показать комментарии' }}
+    </button>
+    <button *ngIf="showComments" class="comments" (click)="switchAddComment()">
+      Добавить комментарий
+    </button>
+  </div>
 </div>
