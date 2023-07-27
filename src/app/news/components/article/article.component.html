@@ -2,7 +2,13 @@
   <h1>{{ article?.title }}</h1>
   <p class="secondary">{{ article?.date }}</p>
   <p>{{ article?.body }}</p>
-  <div *ngIf="showComments">Комментарии</div>
+  <div class="comments-container" *ngIf="showComments">
+    Комментарии:
+    <div class="comment" *ngFor="let comment of comments">
+      <p>{{ comment.body }}</p>
+      <p class="secondary">{{ comment.date }}</p>
+    </div>
+  </div>
   <button class="show-comments" (click)="switchShowComments()">
     {{ showComments ? 'Скрыть комментарии' : 'Показать комментарии' }}
   </button>

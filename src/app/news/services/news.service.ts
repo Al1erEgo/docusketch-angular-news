@@ -9,4 +9,8 @@ export class NewsService {
   getNews() {
     return this.http.get<Article[]>('news')
   }
+
+  getArticle(articleId: number) {
+    return this.http.get<Article>(`news/${articleId}`)
+  }
 }

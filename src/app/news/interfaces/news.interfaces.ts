@@ -6,3 +6,11 @@ export interface Article {
   date: string
   userId: number
 }
+
+export interface Comment {
+  postId: number
+  id: number
+  body: string
+  date: string
+  userId: number
+}

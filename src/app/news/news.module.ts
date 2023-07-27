@@ -7,7 +7,6 @@ import { NewsService } from './services/news.service'
 import { ArticlePreviewComponent } from './components/article-preview/article-preview.component'
 import { ReactiveFormsModule } from '@angular/forms'
 import { SearchPipe } from './pipes/search.pipe'
-
 import { ArticleComponent } from './components/article/article.component'
 import { CommentsService } from './services/comments.service'
 

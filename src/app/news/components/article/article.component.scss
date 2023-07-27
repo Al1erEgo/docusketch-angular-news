@@ -4,6 +4,7 @@
   flex-direction: column;
   gap: 10px;
   border: solid 1px #cccccc;
+  border-radius: 10px;
   padding: 10px;
 
   h1 {
@@ -13,10 +14,25 @@
 
   .secondary {
     color: #b4b4b4;
-    font-size: 0.9rem;
+    font-size: 0.9em;
   }
 
-  .show-comments {
+  .comments-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    font-size: 0.8rem;
+
+    .comment {
+      padding: 5px;
+      margin-left: 15px;
+      border: solid 1px #cccccc;
+      border-radius: 5px;
+    }
+  }
+
+  button.show-comments {
     width: 30%;
     align-self: center;
   }

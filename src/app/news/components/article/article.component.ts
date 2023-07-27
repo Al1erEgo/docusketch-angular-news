@@ -1,8 +1,11 @@
 import { Component, OnDestroy } from '@angular/core'
-import { Subject, takeUntil } from 'rxjs'
-import { Article } from '../../interfaces/news.interfaces'
+import { combineLatest, Subject, takeUntil } from 'rxjs'
+import { Article, Comment } from '../../interfaces/news.interfaces'
 import { NewsService } from '../../services/news.service'
 import { ActivatedRoute } from '@angular/router'
+import { CommentsService } from '../../services/comments.service'
+
+//TODO добавить отображение пользователя-автора комментария
 
 @Component({
   selector: 'app-article',
@@ -11,19 +14,24 @@ import { ActivatedRoute } from '@angular/router'
 })
 export class ArticleComponent implements OnDestroy {
   article?: Article
+  comments?: Comment[]
   destroy$ = new Subject<void>()
   showComments: boolean = false
   articleId: number = +this.route.snapshot.paramMap.get('id')!
 
   constructor(
     private readonly route: ActivatedRoute,
-    private readonly newsService: NewsService
+    private readonly newsService: NewsService,
+    private readonly commentsService: CommentsService
   ) {
-    this.newsService
-      .getNews()
+    combineLatest([
+      this.newsService.getArticle(this.articleId),
+      this.commentsService.getComments(this.articleId),
+    ])
       .pipe(takeUntil(this.destroy$))
-      .subscribe(articles => {
-        this.article = articles.find(article => article.id === this.articleId)
+      .subscribe(([article, comments]) => {
+        this.article = article
+        this.comments = comments
       })
   }
 
