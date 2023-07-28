@@ -10,21 +10,34 @@
     </div>
     <div *ngIf="isAddingComment" class="comment">
       <form [formGroup]="newCommentForm" (ngSubmit)="submitComment()">
-        <textarea
-          rows="3"
-          formControlName="newComment"
-          placeholder="Оставь свой комментарий!"
-          type="text">
-        </textarea>
+        <fieldset [disabled]="isSubmitting">
+          <textarea
+            rows="3"
+            formControlName="newComment"
+            placeholder="Write your comment!"
+            type="text">
+          </textarea>
+        </fieldset>
       </form>
     </div>
   </div>
   <div class="buttons-container">
-    <button *ngIf="isCommentsShow" class="comments" (click)="switchAddComment()">
-      {{ isAddingComment ? 'Опубликовать комментарий' : 'Добавить комментарий' }}
+    <button
+      *ngIf="isCommentsShow && isAddingComment"
+      [disabled]="!newCommentForm.value.newComment"
+      class="comments"
+      (click)="submitComment()">
+      Send comment
+    </button>
+    <button
+      *ngIf="isCommentsShow"
+      class="comments"
+      (click)="switchAddComment()"
+      [disabled]="!isAuth">
+      {{ isAddingComment ? 'Hide comment form' : 'Post comment' }}
     </button>
     <button class="comments" (click)="switchShowComments()">
-      {{ isCommentsShow ? 'Скрыть комментарии' : 'Показать комментарии' }}
+      {{ isCommentsShow ? 'Hide comments' : 'Show comments' }}
     </button>
   </div>
 </div>

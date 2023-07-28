@@ -21,10 +21,8 @@ const appRoutes: Routes = [
     pathMatch: 'full',
     redirectTo: 'news',
   },
-  {
-    path: '**',
-    component: Page404Component,
-  },
+  { path: 'notfound', component: Page404Component },
+  { path: '**', redirectTo: 'notfound' },
 ]
 
 @NgModule({

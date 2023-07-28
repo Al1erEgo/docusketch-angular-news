@@ -16,14 +16,14 @@ export class ErrorInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
-        if (error.error) {
+        if (typeof error.error === 'string') {
           this.notificationService.handleNotification(error.error, 'error')
         } else if (error.message) {
           this.notificationService.handleNotification(error.message, 'error')
         } else {
           this.notificationService.handleNotification('Something went wrong :(', 'error')
         }
-        return throwError(error.error)
+        return throwError(() => new Error('Http response error from interceptor.'))
       })
     )
   }

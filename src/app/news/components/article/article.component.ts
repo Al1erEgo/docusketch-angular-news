@@ -1,10 +1,11 @@
 import { Component, OnDestroy } from '@angular/core'
-import { combineLatest, Subject, takeUntil } from 'rxjs'
+import { catchError, combineLatest, Subject, takeUntil, throwError } from 'rxjs'
 import { Article, Comment } from '../../interfaces/news.interfaces'
 import { NewsService } from '../../services/news.service'
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { CommentsService } from '../../services/comments.service'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
+import { AuthService } from '../../../auth/services/auth.service'
 
 //TODO добавить отображение пользователя-автора комментария
 
@@ -19,8 +20,12 @@ export class ArticleComponent implements OnDestroy {
   destroy$ = new Subject<void>()
   isCommentsShow: boolean = false
   isAddingComment: boolean = false
+  isSubmitting: boolean = false
+  isAuth: boolean = !!this.authService.currentUser
   articleId: number = +this.route.snapshot.paramMap.get('id')!
-  newCommentForm = new FormGroup<{ newComment: FormControl<string> }>({
+  newCommentForm = new FormGroup<{
+    newComment: FormControl<string>
+  }>({
     newComment: new FormControl('', {
       validators: [Validators.required],
       nonNullable: true,
@@ -29,14 +34,22 @@ export class ArticleComponent implements OnDestroy {
 
   constructor(
     private readonly route: ActivatedRoute,
+    private readonly router: Router,
     private readonly newsService: NewsService,
-    private readonly commentsService: CommentsService
+    private readonly commentsService: CommentsService,
+    private readonly authService: AuthService
   ) {
     combineLatest([
       this.newsService.getArticle(this.articleId),
       this.commentsService.getComments(this.articleId),
     ])
-      .pipe(takeUntil(this.destroy$))
+      .pipe(
+        takeUntil(this.destroy$),
+        catchError(err => {
+          void this.router.navigate(['/notfound'])
+          return throwError(err)
+        })
+      )
       .subscribe(([article, comments]) => {
         this.article = article
         this.comments = comments
@@ -59,5 +72,11 @@ export class ArticleComponent implements OnDestroy {
     this.isAddingComment = !this.isAddingComment
   }
 
-  submitComment() {}
+  submitComment() {
+    if (this.newCommentForm.value) {
+      this.isSubmitting = true
+
+      let observable = this.commentsService
+    }
+  }
 }

@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core'
 import { NewsService } from '../../services/news.service'
 import { Article } from '../../interfaces/news.interfaces'
-import { debounceTime, startWith, Subject, takeUntil } from 'rxjs'
+import { debounceTime, Subject, takeUntil } from 'rxjs'
 import { FormBuilder } from '@angular/forms'
 
 @Component({
@@ -17,10 +17,7 @@ export class NewsComponent implements OnDestroy {
   destroy$ = new Subject<void>()
 
   filterForm = this.formBuilder.group({ title: [''] })
-  debouncedControl$ = this.filterForm.controls.title.valueChanges.pipe(
-    startWith(''),
-    debounceTime(500)
-  )
+  debouncedControl$ = this.filterForm.controls.title.valueChanges.pipe(debounceTime(500))
 
   constructor(
     private readonly newsService: NewsService,

@@ -15,96 +15,96 @@
     {
       "id": 1,
       "category": "science",
-      "title": "Ученые обнаружили новую форму жизни в океанских глубинах",
-      "body": "Группа ученых обнаружила микроорганизмы, которые обитают на глубине более 6000 метров в Марианской впадине.",
+      "title": "Scientists Discover New Form of Life in Ocean Depths",
+      "body": "A group of scientists has discovered microorganisms that inhabit depths of over 6000 meters in the Mariana Trench.",
       "date": "05.03.2023",
       "userId": 1
     },
     {
       "id": 2,
       "category": "science",
-      "title": "Роботы-хирурги успешно провели сложную операцию на сердце",
-      "body": "Команда хирургических роботов выполнила сложную операцию по замене клапана сердца пациента с минимальной интервенцией человека.",
+      "title": "Surgical Robots Successfully Perform Complex Heart Surgery",
+      "body": "A team of surgical robots carried out a complex heart valve replacement surgery with minimal human intervention.",
       "date": "14.06.2023",
       "userId": 1
     },
     {
       "id": 3,
       "category": "science",
-      "title": "Астрономы зафиксировали странные сигналы из космоса",
-      "body": "Астрономы обнаружили загадочные радиосигналы, которые до сих пор не имеют объяснения и могут свидетельствовать о неизвестных явлениях в космосе.",
+      "title": "Astronomers Detect Strange Signals from Space",
+      "body": "Astronomers have detected mysterious radio signals that remain unexplained and may indicate unknown phenomena in space.",
       "date": "30.09.2023",
       "userId": 1
     },
     {
       "id": 4,
       "category": "cars",
-      "title": "Компания XYZ представила первый в мире автомобиль на солнечных батареях",
-      "body": "Компания XYZ анонсировала автомобиль, который оснащен интегрированными солнечными батареями, позволяющими заряжать аккумулятор и увеличивать его эффективность.",
+      "title": "XYZ Company Unveils World's First Solar-Powered Car",
+      "body": "XYZ company announced a car equipped with integrated solar panels, allowing the battery to be charged and increasing its efficiency.",
       "date": "12.02.2023",
       "userId": 1
     },
     {
       "id": 5,
       "category": "cars",
-      "title": "Новый электрический кроссовер ABC завоевал сердца автолюбителей",
-      "body": "Электрический кроссовер ABC, представленный на автосалоне, стал бестселлером благодаря своему стильному дизайну и дальности хода на одной зарядке.",
+      "title": "New Electric Crossover ABC Captures the Hearts of Car Enthusiasts",
+      "body": "The electric crossover ABC, presented at the auto show, became a bestseller due to its stylish design and long range on a single charge.",
       "date": "08.05.2023",
       "userId": 1
     },
     {
       "id": 6,
       "category": "cars",
-      "title": "Самоуправляемые такси начали перевозить пассажиров в городе XYZ",
-      "body": "Компания-стартап запустила проект по использованию автономных такси для перевозки пассажиров по городу XYZ, что позволяет снизить загруженность дорог и улучшить транспортную доступность.",
+      "title": "Self-Driving Taxis Start Transporting Passengers in XYZ City",
+      "body": "A startup company has launched a project using autonomous taxis to transport passengers around XYZ city, reducing road congestion and improving accessibility.",
       "date": "20.07.2023",
       "userId": 1
     },
     {
       "id": 7,
       "category": "it",
-      "title": "Компания XYZ анонсировала выход своего нового флагманского смартфона",
-      "body": "Компания XYZ представила новый смартфон с улучшенной камерой, производительным процессором и инновационной технологией искусственного интеллекта.",
+      "title": "XYZ Company Announces Release of New Flagship Smartphone",
+      "body": "XYZ company introduced a new smartphone with an improved camera, powerful processor, and innovative artificial intelligence technology.",
       "date": "02.04.2023",
       "userId": 1
     },
     {
       "id": 8,
       "category": "it",
-      "title": "Уязвимость в популярном мессенджере угрожает миллионам пользователей",
-      "body": "Исследователи обнаружили уязвимость в популярном мессенджере, которая может привести к несанкционированному доступу к аккаунтам пользователей и утечке их персональных данных.",
+      "title": "Vulnerability in Popular Messenger Poses Threat to Millions of Users",
+      "body": "Researchers discovered a vulnerability in a popular messenger that could lead to unauthorized access to user accounts and the leakage of their personal data.",
       "date": "19.06.2023",
       "userId": 1
     },
     {
       "id": 9,
       "category": "it",
-      "title": "Роботы-курьеры начали доставку еды в городе ABC",
-      "body": "Компания доставки пиццы в городе ABC внедрила роботов-курьеров для бесконтактной доставки заказов клиентам, что сократило время доставки и улучшило сервис.",
+      "title": "Robot Couriers Begin Delivering Food in ABC City",
+      "body": "A pizza delivery company in ABC city has implemented robot couriers for contactless delivery of orders to customers, reducing delivery time and improving service.",
       "date": "10.09.2023",
       "userId": 1
     },
     {
       "id": 10,
       "category": "politics",
-      "title": "Вступление страны XYZ в мировую экономическую коалицию",
-      "body": "Страна XYZ стала полноправным членом мировой экономической коалиции, что открывает новые перспективы для развития торговли и экономического сотрудничества.",
+      "title": "Country XYZ Joins Global Economic Coalition",
+      "body": "Country XYZ has become a full member of the global economic coalition, opening new prospects for trade and economic cooperation.",
       "date": "25.02.2023",
       "userId": 1
     },
     {
       "id": 11,
       "category": "politics",
-      "title": "Визит главы государства XYZ в соседнюю страну",
-      "body": "Президент страны XYZ совершил официальный визит в соседнюю страну с целью укрепления дипломатических отношений и обсуждения важных вопросов региональной безопасности.",
+      "title": "Head of State XYZ Makes Official Visit to Neighboring Country",
+      "body": "The president of country XYZ made an official visit to a neighboring country to strengthen diplomatic relations and discuss important regional security issues.",
       "date": "14.06.2023",
       "userId": 1
     },
     {
       "id": 12,
       "category": "politics",
-      "title": "Принятие новой законодательной инициативы в парламенте страны ABC",
-      "body": "Парламент страны ABC одобрил новую законодательную инициативу, направленную на укрепление прав граждан и регулирование важных социальных вопросов.",
+      "title": "Adoption of New Legislative Initiative in ABC Country's Parliament",
+      "body": "The parliament of ABC country approved a new legislative initiative aimed at strengthening citizens' rights and regulating important social issues.",
       "date": "30.09.2023",
       "userId": 1
     }
@@ -113,252 +113,252 @@
     {
       "postId": 1,
       "id": 1,
-      "body": "Удивительно! Какие находки делает современная наука.",
+      "body": "Amazing! What discoveries modern science makes.",
       "date": "05.03.2023",
       "userId": 1
     },
     {
       "postId": 1,
       "id": 2,
-      "body": "Океанские глубины всегда были загадкой. Поразительно, что там нашли.",
+      "body": "The depths of the ocean have always been a mystery. It's astonishing what they found there.",
       "date": "06.03.2023",
       "userId": 1
     },
     {
       "postId": 1,
       "id": 3,
-      "body": "Надеюсь, эти микроорганизмы окажут важное влияние на экологию океана.",
+      "body": "I hope these microorganisms will have a significant impact on ocean ecology.",
       "date": "06.03.2023",
       "userId": 1
     },
     {
       "postId": 2,
       "id": 4,
-      "body": "Это революционный шаг в медицине!",
+      "body": "This is a revolutionary step in medicine!",
       "date": "14.06.2023",
       "userId": 1
     },
     {
       "postId": 2,
       "id": 5,
-      "body": "Роботы-хирурги точнее и менее инвазивны. Впечатляюще!",
+      "body": "Surgical robots are more precise and less invasive. Impressive!",
       "date": "15.06.2023",
       "userId": 1
     },
     {
       "postId": 2,
       "id": 6,
-      "body": "Надеюсь, такие операции станут доступными для всех пациентов.",
+      "body": "I hope such surgeries will become accessible to all patients.",
       "date": "16.06.2023",
       "userId": 1
     },
     {
       "postId": 3,
       "id": 7,
-      "body": "Может быть, это сигналы от инопланетян? Загадка!",
+      "body": "Maybe these signals are from extraterrestrial beings? It's a mystery!",
       "date": "30.09.2023",
       "userId": 1
     },
     {
       "postId": 3,
       "id": 8,
-      "body": "Космос полон тайн. Надеюсь, астрономы найдут ответы.",
+      "body": "Space is full of secrets. I hope astronomers will find answers.",
       "date": "30.09.2023",
       "userId": 1
     },
     {
       "postId": 3,
       "id": 9,
-      "body": "Интересно, какие открытия принесут эти странные сигналы.",
+      "body": "It's interesting what discoveries these strange signals will bring.",
       "date": "30.09.2023",
       "userId": 1
     },
     {
       "postId": 4,
       "id": 10,
-      "body": "Это революционное решение! Уменьшение зависимости от топлива.",
+      "body": "This is a revolutionary solution! Reducing dependence on fuel.",
       "date": "12.02.2023",
       "userId": 1
     },
     {
       "postId": 4,
       "id": 11,
-      "body": "Прекрасная новость для экологии и будущего автомобильной промышленности.",
+      "body": "Great news for ecology and the future of the automotive industry.",
       "date": "13.02.2023",
       "userId": 1
     },
     {
       "postId": 4,
       "id": 12,
-      "body": "Сколько времени нужно для зарядки такого автомобиля?",
+      "body": "How long does it take to charge such a car?",
       "date": "14.02.2023",
       "userId": 1
     },
     {
       "postId": 5,
       "id": 13,
-      "body": "Красивый и экологичный автомобиль. Жду его на рынке!",
+      "body": "Beautiful and eco-friendly car. Looking forward to its release!",
       "date": "09.05.2023",
       "userId": 1
     },
     {
       "postId": 5,
       "id": 14,
-      "body": "Какая примерная дальность хода у этого кроссовера?",
+      "body": "What is the approximate range of this crossover?",
       "date": "09.05.2023",
       "userId": 1
     },
     {
       "postId": 5,
       "id": 15,
-      "body": "Надеюсь, электрические автомобили станут доступными для всех.",
+      "body": "I hope electric cars will become accessible to everyone.",
       "date": "10.05.2023",
       "userId": 1
     },
     {
       "postId": 6,
       "id": 16,
-      "body": "Времена меняются! Скоро такие такси станут обыденностью.",
+      "body": "Times are changing! Such taxis will soon become commonplace.",
       "date": "21.07.2023",
       "userId": 1
     },
     {
       "postId": 6,
       "id": 17,
-      "body": "Как обеспечивается безопасность пассажиров в автономных такси?",
+      "body": "How are passengers' safety ensured in autonomous taxis?",
       "date": "22.07.2023",
       "userId": 1
     },
     {
       "postId": 6,
       "id": 18,
-      "body": "Надеюсь, это поможет решить проблемы городского трафика.",
+      "body": "I hope this will help solve urban traffic issues.",
       "date": "23.07.2023",
       "userId": 1
     },
     {
       "postId": 7,
       "id": 19,
-      "body": "Характеристики этого смартфона просто потрясающие!",
+      "body": "The specifications of this smartphone are simply stunning!",
       "date": "02.04.2023",
       "userId": 1
     },
     {
       "postId": 7,
       "id": 20,
-      "body": "Ожидается ли выпуск специальной версии смартфона для разработчиков?",
+      "body": "Will there be a special version of the smartphone for developers?",
       "date": "03.04.2023",
       "userId": 1
     },
     {
       "postId": 7,
       "id": 21,
-      "body": "Надеюсь, новый смартфон будет доступен по адекватной цене.",
+      "body": "I hope the new smartphone will be available at a reasonable price.",
       "date": "04.04.2023",
       "userId": 1
     },
     {
       "postId": 8,
       "id": 22,
-      "body": "Надеюсь, разработчики быстро устранят эту уязвимость!",
+      "body": "I hope developers will quickly fix this vulnerability!",
       "date": "20.06.2023",
       "userId": 1
     },
     {
       "postId": 8,
       "id": 23,
-      "body": "Это напоминает о важности обеспечения безопасности в мессенджерах.",
+      "body": "This serves as a reminder of the importance of security in messengers.",
       "date": "21.06.2023",
       "userId": 1
     },
     {
       "postId": 8,
       "id": 24,
-      "body": "Как можно защитить свой аккаунт от таких угроз?",
+      "body": "How can one protect their account from such threats?",
       "date": "21.06.2023",
       "userId": 1
     },
     {
       "postId": 9,
       "id": 25,
-      "body": "Это выглядит как из фильма научной фантастики!",
+      "body": "This looks like something from a sci-fi movie!",
       "date": "10.09.2023",
       "userId": 1
     },
     {
       "postId": 9,
       "id": 26,
-      "body": "Какая скорость доставки у роботов-курьеров?",
+      "body": "What is the delivery speed of the robot couriers?",
       "date": "10.09.2023",
       "userId": 1
     },
     {
       "postId": 9,
       "id": 27,
-      "body": "Надеюсь, роботы не заблудятся в пути.",
+      "body": "I hope the robots won't get lost on the way.",
       "date": "11.09.2023",
       "userId": 1
     },
     {
       "postId": 10,
       "id": 28,
-      "body": "Это важное событие для мировой экономики.",
+      "body": "This is an important event for the global economy.",
       "date": "26.02.2023",
       "userId": 1
     },
     {
       "postId": 10,
       "id": 29,
-      "body": "Надеюсь, это принесет процветание стране XYZ.",
+      "body": "I hope this will bring prosperity to country XYZ.",
       "date": "27.02.2023",
       "userId": 1
     },
     {
       "postId": 10,
       "id": 30,
-      "body": "Какие сферы экономического сотрудничества планируются?",
+      "body": "What areas of economic cooperation are planned?",
       "date": "27.02.2023",
       "userId": 1
     },
     {
       "postId": 11,
       "id": 31,
-      "body": "Дипломатические отношения играют важную роль в современном мире.",
+      "body": "Diplomatic relations play an important role in the modern world.",
       "date": "14.06.2023",
       "userId": 1
     },
     {
       "postId": 11,
       "id": 32,
-      "body": "Надеюсь, этот визит поможет решить региональные проблемы.",
+      "body": "I hope this visit will help address regional issues.",
       "date": "15.06.2023",
       "userId": 1
     },
     {
       "postId": 11,
       "id": 33,
-      "body": "Какие результаты принес визит главы государства?",
+      "body": "What were the results of the head of state's visit?",
       "date": "15.06.2023",
       "userId": 1
     },
     {
       "postId": 12,
       "id": 34,
-      "body": "Важный шаг для защиты прав граждан страны ABC.",
+      "body": "An important step to protect the rights of citizens in ABC country.",
       "date": "30.09.2023",
       "userId": 1
     },
     {
       "postId": 12,
       "id": 35,
-      "body": "Какие изменения принесет новая законодательная инициатива?",
+      "body": "What changes will the new legislative initiative bring?",
       "date": "30.09.2023",
       "userId": 1
     },
     {
       "postId": 12,
       "id": 36,
-      "body": "Надеюсь, это улучшит жизнь граждан страны.",
+      "body": "I hope this will improve the lives of citizens in the country.",
       "date": "30.09.2023",
       "userId": 1
     }
