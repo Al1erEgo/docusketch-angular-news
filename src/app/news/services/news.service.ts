@@ -13,4 +13,8 @@ export class NewsService {
   getArticle(articleId: number) {
     return this.http.get<Article>(`news/${articleId}`)
   }
+
+  postArticle(newArticle: Partial<Article>) {
+    return this.http.post<Article>(`news`, newArticle)
+  }
 }

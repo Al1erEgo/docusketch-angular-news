@@ -72,7 +72,7 @@ export class ArticleComponent implements OnDestroy {
     if (this.newCommentForm.value.newComment) {
       this.newCommentForm.get('newComment')?.disable()
 
-      const newComment = {
+      const newComment: Partial<Comment> = {
         postId: this.articleId,
         userId: this.authService.currentUser?.id,
         body: this.newCommentForm.value.newComment,
@@ -80,6 +80,7 @@ export class ArticleComponent implements OnDestroy {
       }
 
       let observable = this.commentsService.postComment(newComment)
+
       observable.pipe(takeUntil(this.destroy$)).subscribe({
         next: newComment => {
           this.comments?.push(newComment)

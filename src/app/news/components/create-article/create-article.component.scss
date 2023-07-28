@@ -1,0 +1,27 @@
+
+.article-container {
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: solid 1px #cccccc;
+  border-radius: 10px;
+  padding: 10px;
+
+  h2 {
+    text-align: center;
+    color: #3a76a4;
+  }
+
+  .title-input {
+    padding: 5px;
+    outline: none;
+  }
+
+  .body-input {
+    padding: 5px;
+    width: 100%;
+    resize: vertical;
+    outline: none;
+  }
+}

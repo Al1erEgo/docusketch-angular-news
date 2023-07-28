@@ -1,1 +1,16 @@
-<p>create-article works!</p>
+<form [formGroup]="newArticleForm">
+  <fieldset class="article-container" [disabled]="newArticleForm.disabled">
+    <h2>New article</h2>
+    <select formControlName="category">
+      <option value="" selected>Select category</option>
+      <option *ngFor="let category of categories" [value]="category">
+        {{ category[0].toUpperCase() + category.slice(1) }}
+      </option>
+    </select>
+    <textarea rows="1" placeholder="Title" class="title-input" formControlName="title"></textarea>
+    <textarea class="body-input" placeholder="Article" rows="10" formControlName="body"></textarea>
+    <button type="submit" (click)="submitArticle()" [disabled]="!newArticleForm.valid">
+      Submit article
+    </button>
+  </fieldset>
+</form>
