@@ -12,6 +12,7 @@ import { AuthService } from './auth/services/auth.service'
 import { TokenInterceptor } from './shared/interceptors/token.interceptor'
 import { ApiInterceptor } from './shared/interceptors/api.interceptor'
 
+//TODO перенести компоненты которые представляют из себя страницы в папки pages в модулях
 export function initAuth(sessionStorage: SessionStorageService, authService: AuthService) {
   return () => (sessionStorage.getUserData() ? authService.initUser() : EMPTY)
 }

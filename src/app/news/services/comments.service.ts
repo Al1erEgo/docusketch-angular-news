@@ -10,7 +10,7 @@ export class CommentsService {
     return this.http.get<Comment[]>(`comments?postId=${articleId}`)
   }
 
-  postComment(comment: Comment) {
-    // return this.http.post<Comment[]>(`comments?postId=${articleId}`)
+  postComment(comment: Partial<Comment>) {
+    return this.http.post<Comment>(`comments`, comment)
   }
 }

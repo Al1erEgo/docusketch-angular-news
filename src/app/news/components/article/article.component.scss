@@ -30,12 +30,17 @@
       border: solid 1px #cccccc;
       border-radius: 5px;
 
-      textarea {
+      .comment-input {
         width: 100%;
         resize: vertical;
         border: none;
         outline: none;
       }
+    }
+
+    .login-message {
+      display: flex;
+      justify-content: center;
     }
   }
 

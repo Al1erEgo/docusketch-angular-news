@@ -1,7 +1,7 @@
-<div class="article-container">
-  <h1>{{ article?.title }}</h1>
-  <p class="secondary">{{ article?.date }}</p>
-  <p>{{ article?.body }}</p>
+<div class="article-container" *ngIf="article">
+  <h1>{{ article.title }}</h1>
+  <p class="secondary">{{ article.date }}</p>
+  <p>{{ article.body }}</p>
   <div class="comments-container" *ngIf="isCommentsShow">
     Комментарии:
     <div class="comment" *ngFor="let comment of comments">
@@ -10,21 +10,26 @@
     </div>
     <div *ngIf="isAddingComment" class="comment">
       <form [formGroup]="newCommentForm" (ngSubmit)="submitComment()">
-        <fieldset [disabled]="isSubmitting">
-          <textarea
-            rows="3"
-            formControlName="newComment"
-            placeholder="Write your comment!"
-            type="text">
-          </textarea>
-        </fieldset>
+        <textarea
+          class="comment-input"
+          rows="3"
+          formControlName="newComment"
+          placeholder="Write your comment!"
+          type="text">
+        </textarea>
       </form>
     </div>
+    <div class="login-message" *ngIf="!isAuth">
+      <p class="secondary" *ngIf="!isAuth">Please login to post comments.</p>
+    </div>
   </div>
+
   <div class="buttons-container">
     <button
       *ngIf="isCommentsShow && isAddingComment"
-      [disabled]="!newCommentForm.value.newComment"
+      [disabled]="
+        !newCommentForm.value.newComment || this.newCommentForm.get('newComment')?.disabled
+      "
       class="comments"
       (click)="submitComment()">
       Send comment

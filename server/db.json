@@ -361,6 +361,13 @@
       "body": "I hope this will improve the lives of citizens in the country.",
       "date": "30.09.2023",
       "userId": 1
+    },
+    {
+      "postId": 1,
+      "userId": 2,
+      "body": "Amazing!",
+      "date": "28.07.2023",
+      "id": 37
     }
   ]
 }

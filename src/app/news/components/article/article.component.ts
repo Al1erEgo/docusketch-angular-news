@@ -4,7 +4,7 @@ import { Article, Comment } from '../../interfaces/news.interfaces'
 import { NewsService } from '../../services/news.service'
 import { ActivatedRoute, Router } from '@angular/router'
 import { CommentsService } from '../../services/comments.service'
-import { FormControl, FormGroup, Validators } from '@angular/forms'
+import { FormControl, FormGroup } from '@angular/forms'
 import { AuthService } from '../../../auth/services/auth.service'
 
 //TODO добавить отображение пользователя-автора комментария
@@ -20,16 +20,12 @@ export class ArticleComponent implements OnDestroy {
   destroy$ = new Subject<void>()
   isCommentsShow: boolean = false
   isAddingComment: boolean = false
-  isSubmitting: boolean = false
   isAuth: boolean = !!this.authService.currentUser
   articleId: number = +this.route.snapshot.paramMap.get('id')!
   newCommentForm = new FormGroup<{
-    newComment: FormControl<string>
+    newComment: FormControl<string | null>
   }>({
-    newComment: new FormControl('', {
-      validators: [Validators.required],
-      nonNullable: true,
-    }),
+    newComment: new FormControl(''),
   })
 
   constructor(
@@ -73,10 +69,27 @@ export class ArticleComponent implements OnDestroy {
   }
 
   submitComment() {
-    if (this.newCommentForm.value) {
-      this.isSubmitting = true
+    if (this.newCommentForm.value.newComment) {
+      this.newCommentForm.get('newComment')?.disable()
 
-      let observable = this.commentsService
+      const newComment = {
+        postId: this.articleId,
+        userId: this.authService.currentUser?.id,
+        body: this.newCommentForm.value.newComment,
+        date: new Date().toLocaleDateString(),
+      }
+
+      let observable = this.commentsService.postComment(newComment)
+      observable.pipe(takeUntil(this.destroy$)).subscribe({
+        next: newComment => {
+          this.comments?.push(newComment)
+          this.newCommentForm.reset()
+          this.isAddingComment = false
+        },
+        error: () => {
+          this.newCommentForm.get('newComment')?.enable()
+        },
+      })
     }
   }
 }
