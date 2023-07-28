@@ -6,12 +6,12 @@ import { ArticleComponent } from './components/article/article.component'
 
 const authRoutes: Routes = [
   { path: '', component: NewsComponent },
-  { path: ':id', component: ArticleComponent, pathMatch: 'full' },
   {
     path: 'create-article',
     component: CreateArticleComponent,
     pathMatch: 'full',
   },
+  { path: ':id', component: ArticleComponent, pathMatch: 'full' },
 ]
 
 @NgModule({

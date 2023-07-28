@@ -5,6 +5,9 @@
   <nav>
     <a [routerLink]="['../news']" routerLinkActive="active"> News </a>
     <a [routerLink]="['../subscriptions']" routerLinkActive="active"> Subscriptions </a>
+    <a *ngIf="isAuth" [routerLink]="['../news/create-article']" routerLinkActive="active">
+      Add article
+    </a>
   </nav>
   <div class="user-info">
     <span *ngIf="userEmail"> User: {{ userEmail }} </span>

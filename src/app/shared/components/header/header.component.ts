@@ -17,6 +17,10 @@ export class HeaderComponent {
     return this.authService.currentUser?.email
   }
 
+  get isAuth(): boolean {
+    return !!this.authService.currentUser
+  }
+
   logout(): void {
     this.authService.logout()
   }
