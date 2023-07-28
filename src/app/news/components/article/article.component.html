@@ -2,20 +2,29 @@
   <h1>{{ article?.title }}</h1>
   <p class="secondary">{{ article?.date }}</p>
   <p>{{ article?.body }}</p>
-  <div class="comments-container" *ngIf="showComments">
+  <div class="comments-container" *ngIf="isCommentsShow">
     Комментарии:
     <div class="comment" *ngFor="let comment of comments">
       <p>{{ comment.body }}</p>
       <p class="secondary">{{ comment.date }}</p>
     </div>
-    <div *ngIf="addComment" class="comment">Форма добавления комментария</div>
+    <div *ngIf="isAddingComment" class="comment">
+      <form [formGroup]="newCommentForm" (ngSubmit)="submitComment()">
+        <textarea
+          rows="3"
+          formControlName="newComment"
+          placeholder="Оставь свой комментарий!"
+          type="text">
+        </textarea>
+      </form>
+    </div>
   </div>
   <div class="buttons-container">
-    <button class="comments" (click)="switchShowComments()">
-      {{ showComments ? 'Скрыть комментарии' : 'Показать комментарии' }}
+    <button *ngIf="isCommentsShow" class="comments" (click)="switchAddComment()">
+      {{ isAddingComment ? 'Опубликовать комментарий' : 'Добавить комментарий' }}
     </button>
-    <button *ngIf="showComments" class="comments" (click)="switchAddComment()">
-      Добавить комментарий
+    <button class="comments" (click)="switchShowComments()">
+      {{ isCommentsShow ? 'Скрыть комментарии' : 'Показать комментарии' }}
     </button>
   </div>
 </div>

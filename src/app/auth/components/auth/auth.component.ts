@@ -25,7 +25,17 @@ export interface Errors {
 export class AuthComponent implements OnInit, OnDestroy {
   authType: string = ''
   title: string = ''
-  authForm: FormGroup<AuthForm>
+  authForm = new FormGroup<AuthForm>({
+    email: new FormControl('', {
+      validators: [Validators.required, Validators.email],
+      nonNullable: true,
+    }),
+    password: new FormControl('', {
+      validators: [Validators.required, Validators.minLength(8)],
+      nonNullable: true,
+    }),
+  })
+
   errors: Errors = { errors: {} }
   isSubmitting = false
   destroy$ = new Subject<void>()
@@ -35,18 +45,7 @@ export class AuthComponent implements OnInit, OnDestroy {
     private readonly router: Router,
     private readonly authService: AuthService,
     private readonly notificationService: NotificationService
-  ) {
-    this.authForm = new FormGroup<AuthForm>({
-      email: new FormControl('', {
-        validators: [Validators.required, Validators.email],
-        nonNullable: true,
-      }),
-      password: new FormControl('', {
-        validators: [Validators.required, Validators.minLength(8)],
-        nonNullable: true,
-      }),
-    })
-  }
+  ) {}
 
   ngOnInit(): void {
     this.authType = this.route.snapshot.url.at(-1)!.path

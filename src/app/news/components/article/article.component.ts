@@ -4,6 +4,7 @@ import { Article, Comment } from '../../interfaces/news.interfaces'
 import { NewsService } from '../../services/news.service'
 import { ActivatedRoute } from '@angular/router'
 import { CommentsService } from '../../services/comments.service'
+import { FormControl, FormGroup, Validators } from '@angular/forms'
 
 //TODO добавить отображение пользователя-автора комментария
 
@@ -16,9 +17,15 @@ export class ArticleComponent implements OnDestroy {
   article?: Article
   comments?: Comment[]
   destroy$ = new Subject<void>()
-  showComments: boolean = false
-  addComment: boolean = false
+  isCommentsShow: boolean = false
+  isAddingComment: boolean = false
   articleId: number = +this.route.snapshot.paramMap.get('id')!
+  newCommentForm = new FormGroup<{ newComment: FormControl<string> }>({
+    newComment: new FormControl('', {
+      validators: [Validators.required],
+      nonNullable: true,
+    }),
+  })
 
   constructor(
     private readonly route: ActivatedRoute,
@@ -42,13 +49,15 @@ export class ArticleComponent implements OnDestroy {
   }
 
   switchShowComments() {
-    this.showComments = !this.showComments
-    if (!this.showComments) {
-      this.addComment = false
+    this.isCommentsShow = !this.isCommentsShow
+    if (!this.isCommentsShow) {
+      this.isAddingComment = false
     }
   }
 
   switchAddComment() {
-    this.addComment = !this.addComment
+    this.isAddingComment = !this.isAddingComment
   }
+
+  submitComment() {}
 }

@@ -29,6 +29,11 @@
       margin-left: 15px;
       border: solid 1px #cccccc;
       border-radius: 5px;
+
+      textarea {
+        width: 100%;
+        resize: vertical;
+      }
     }
   }
 
