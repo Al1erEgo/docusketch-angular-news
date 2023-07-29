@@ -14,6 +14,7 @@ export class NewsComponent implements OnDestroy {
   newsToRender: Article[] = []
   categories: string[] = []
   currentCategory: string = 'All'
+
   destroy$ = new Subject<void>()
 
   filterForm = this.formBuilder.group({ title: [''] })

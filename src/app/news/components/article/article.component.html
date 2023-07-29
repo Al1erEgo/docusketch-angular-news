@@ -3,7 +3,7 @@
   <p class="secondary">{{ article.date }}</p>
   <p>{{ article.body }}</p>
   <div class="comments-container" *ngIf="isCommentsShow">
-    Комментарии:
+    {{ !comments?.length ? 'No comments yet' : 'Comments:' }}
     <div class="comment" *ngFor="let comment of comments">
       <p>{{ comment.body }}</p>
       <p class="secondary">{{ comment.date }}</p>
