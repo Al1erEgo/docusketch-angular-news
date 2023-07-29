@@ -8,11 +8,11 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { ErrorInterceptor } from './shared/interceptors/error.interceptor'
 import { SessionStorageService } from './auth/services/session-storage.service'
 import { EMPTY } from 'rxjs'
+
 import { AuthService } from './auth/services/auth.service'
 import { TokenInterceptor } from './shared/interceptors/token.interceptor'
 import { ApiInterceptor } from './shared/interceptors/api.interceptor'
 
-//TODO добавить гварды
 //TODO перенести компоненты которые представляют из себя страницы в папки pages в модулях
 //TODO сделать ресолвер на article
 
@@ -24,7 +24,6 @@ export function initAuth(sessionStorage: SessionStorageService, authService: Aut
   declarations: [AppComponent],
   imports: [BrowserModule, SharedModule, AppRoutingModule, HttpClientModule],
   providers: [
-    AuthService,
     {
       provide: APP_INITIALIZER,
       useFactory: initAuth,
