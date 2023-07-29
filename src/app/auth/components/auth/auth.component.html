@@ -1,7 +1,7 @@
 <div class="card">
   <h2 class="title">{{ title }}</h2>
   <form [formGroup]="authForm" (ngSubmit)="submitForm()">
-    <fieldset class="form-field" [disabled]="isSubmitting">
+    <fieldset class="form-field" [disabled]="authForm.disabled">
       <fieldset class="form-field">
         <input
           autocomplete="email"
@@ -23,10 +23,12 @@
           [class.inputError]="password!.invalid && (password!.dirty || password!.touched)" />
         <div *ngIf="password!.invalid && (password!.dirty || password!.touched)" class="error">
           <div *ngIf="password!.errors?.['required']">Password is required</div>
-          <div *ngIf="password!.errors?.['email']">Password must be at least 8 characters long</div>
+          <div *ngIf="password!.errors?.['minlength']">
+            Password must be at least 8 characters long
+          </div>
         </div>
       </fieldset>
-      <button [disabled]="!authForm.valid || isSubmitting" type="submit">
+      <button [disabled]="!authForm.valid || authForm.disabled" type="submit">
         {{ title }}
       </button>
     </fieldset>

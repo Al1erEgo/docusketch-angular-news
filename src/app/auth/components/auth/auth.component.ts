@@ -6,8 +6,6 @@ import { CommonAuthResponse } from '../../interfaces/auth.interfaces'
 import { AuthService } from '../../services/auth.service'
 import { NotificationService } from '../../../shared/services/notification.service'
 
-//TODO убрать disable формы на неуспешный логин
-//TODO показать ошибку если пароль недостаточно длинный
 interface AuthForm {
   email: FormControl<string>
   password: FormControl<string>
@@ -37,7 +35,6 @@ export class AuthComponent implements OnInit, OnDestroy {
   })
 
   errors: Errors = { errors: {} }
-  isSubmitting = false
   destroy$ = new Subject<void>()
 
   constructor(
@@ -66,7 +63,7 @@ export class AuthComponent implements OnInit, OnDestroy {
   }
 
   submitForm(): void {
-    this.isSubmitting = true
+    this.authForm.disable()
     this.errors = { errors: {} }
 
     let observable =
@@ -83,6 +80,9 @@ export class AuthComponent implements OnInit, OnDestroy {
       next: (res: CommonAuthResponse) => {
         this.notificationService.handleNotification(`Welcome ${res.user.email}`, 'success')
         void this.router.navigate(['/'])
+      },
+      error: () => {
+        this.authForm.enable()
       },
     })
   }
