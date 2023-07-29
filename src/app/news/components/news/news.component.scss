@@ -15,6 +15,10 @@
   nav {
     display: flex;
     gap: 10px;
+
+    @media screen and (max-width: 550px) {
+      flex-wrap: wrap;
+    }
   }
 
   .active {

@@ -38,6 +38,7 @@ html {
     border: none;
     border-radius: 5px;
     padding: 7px;
+    min-width: fit-content;
 
     &:hover {
       background-color: #7fb0cc;

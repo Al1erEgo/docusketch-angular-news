@@ -8,6 +8,11 @@
   flex-direction: column;
   align-items: center;
   padding-top: 15px;
+
+  @media screen and (max-width: 550px) {
+    max-height: calc(100% - 145px);
+    min-height: calc(100% - 145px);
+  }
 }
 
 

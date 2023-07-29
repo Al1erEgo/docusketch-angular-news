@@ -48,6 +48,10 @@
     display: flex;
     justify-content: center;
     gap: 15px;
+
+    @media screen and (max-width: 550px) {
+      flex-direction: column;
+    }
   }
 
   button.comments {
