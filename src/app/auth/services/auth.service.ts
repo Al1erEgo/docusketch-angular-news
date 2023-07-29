@@ -8,8 +8,8 @@ import { NotificationService } from '../../shared/services/notification.service'
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  public currentUser: User | null = null
-  public currentToken: string | null = null
+  currentUser: User | null = null
+  currentToken: string | null = null
 
   constructor(
     private readonly http: HttpClient,
@@ -51,5 +51,9 @@ export class AuthService {
     this.sessionStorageService.cleanUserData()
     this.currentUser = null
     this.currentToken = null
+  }
+
+  get isAuth() {
+    return !!this.currentUser
   }
 }

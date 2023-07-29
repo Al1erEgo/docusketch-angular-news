@@ -20,7 +20,7 @@ export class ArticleComponent implements OnDestroy {
   destroy$ = new Subject<void>()
   isCommentsShow: boolean = false
   isAddingComment: boolean = false
-  isAuth: boolean = !!this.authService.currentUser
+  isAuth: boolean = this.authService.isAuth
   articleId: number = +this.route.snapshot.paramMap.get('id')!
   newCommentForm = new FormGroup<{
     newComment: FormControl<string | null>

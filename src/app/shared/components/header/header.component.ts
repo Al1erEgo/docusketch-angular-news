@@ -18,7 +18,7 @@ export class HeaderComponent {
   }
 
   get isAuth(): boolean {
-    return !!this.authService.currentUser
+    return this.authService.isAuth
   }
 
   logout(): void {

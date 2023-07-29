@@ -13,7 +13,6 @@ import { TokenInterceptor } from './shared/interceptors/token.interceptor'
 import { ApiInterceptor } from './shared/interceptors/api.interceptor'
 
 //TODO добавить гварды
-//TODO сделать страницу подписки
 //TODO перенести компоненты которые представляют из себя страницы в папки pages в модулях
 //TODO сделать ресолвер на article
 
@@ -25,6 +24,7 @@ export function initAuth(sessionStorage: SessionStorageService, authService: Aut
   declarations: [AppComponent],
   imports: [BrowserModule, SharedModule, AppRoutingModule, HttpClientModule],
   providers: [
+    AuthService,
     {
       provide: APP_INITIALIZER,
       useFactory: initAuth,
