@@ -107,14 +107,6 @@
       "body": "The parliament of ABC country approved a new legislative initiative aimed at strengthening citizens' rights and regulating important social issues.",
       "date": "30.09.2023",
       "userId": 1
-    },
-    {
-      "category": "sport",
-      "title": "1234",
-      "body": "1234",
-      "date": "28.07.2023",
-      "userId": 2,
-      "id": 13
     }
   ],
   "comments": [
@@ -369,13 +361,6 @@
       "body": "I hope this will improve the lives of citizens in the country.",
       "date": "30.09.2023",
       "userId": 1
-    },
-    {
-      "postId": 1,
-      "userId": 2,
-      "body": "Amazing!",
-      "date": "28.07.2023",
-      "id": 37
     }
   ]
 }
