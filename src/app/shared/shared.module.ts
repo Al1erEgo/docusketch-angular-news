@@ -5,10 +5,11 @@ import { HeaderComponent } from './components/header/header.component'
 import { RouterLink, RouterLinkActive } from '@angular/router'
 import { SubscriptionsComponent } from './components/subscriptions/subscriptions.component'
 import { NotificationComponent } from './components/notification/notification.component'
+import { ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [Page404Component, HeaderComponent, NotificationComponent, SubscriptionsComponent],
-  imports: [CommonModule, NgOptimizedImage, RouterLink, RouterLinkActive],
+  imports: [CommonModule, NgOptimizedImage, RouterLink, RouterLinkActive, ReactiveFormsModule],
   providers: [],
   exports: [HeaderComponent, NotificationComponent, SubscriptionsComponent],
 })

@@ -1,1 +1,37 @@
-<p>subscriptions works!</p>
+<form [formGroup]="subscriptionForm">
+  <fieldset class="subscriptions-container">
+    <h2>Subscription purchase:</h2>
+    <div *ngFor="let subscription of subscriptions">
+      <label
+        class="subscription"
+        [for]="subscription.title"
+        (click)="onLabelClick(subscription.title)">
+        <input
+          type="radio"
+          [value]="subscription.title"
+          formControlName="subscription"
+          [checked]="subscription.title === subscriptionForm.value.subscription" />
+        {{ subscription.title }}
+      </label>
+      <div
+        class="subscription-container"
+        *ngIf="subscription.title === subscriptionForm.value.subscription">
+        <h3>Subscription features:</h3>
+        <ul>
+          <li *ngFor="let feature of subscription.features">{{ feature }}</li>
+        </ul>
+        <div
+          class="price-container"
+          *ngIf="subscription.title === subscriptionForm.value.subscription">
+          <h4>Choose subscription duration:</h4>
+          <select>
+            <option *ngFor="let price of subscription.prices">
+              {{ price.duration }} price: {{ price.price }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <button>Subscribe $</button>
+  </fieldset>
+</form>

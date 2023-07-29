@@ -1,3 +1,7 @@
+:root {
+  --main_color: #3a76a4
+}
+
 *,
 *::before,
 *::after {
@@ -17,7 +21,7 @@ html {
   a {
     font-weight: 600;
     text-decoration: none;
-    color: #3a76a4;
+    color: var(--main_color);
 
     &.active {
       color: #2b5879;

@@ -1,0 +1,39 @@
+.subscriptions-container {
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+  border: solid 1px #cccccc;
+  border-radius: 10px;
+  padding: 10px;
+
+  h2 {
+    color: var(--main_color);
+    text-align: center;
+  }
+
+  .subscription {
+    cursor: pointer;
+  }
+
+  .subscription-container {
+    margin: 10px 0 0 30px;
+
+    h3 {
+      line-height: 30px;
+    }
+
+    ul {
+      line-height: 20px;
+    }
+
+    .price-container {
+      display: flex;
+      gap: 7px;
+      padding: 10px;
+    }
+  }
+}
+
+
