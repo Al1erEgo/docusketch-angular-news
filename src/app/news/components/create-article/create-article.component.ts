@@ -55,7 +55,7 @@ export class CreateArticleComponent implements OnDestroy {
         category: this.newArticleForm.value.category,
         title: this.newArticleForm.value.title,
         body: this.newArticleForm.value.body,
-        date: new Date().toLocaleDateString(),
+        date: new Date().toLocaleDateString('ru-RU'),
         userId: this.authService.currentUser?.id,
       }
 
