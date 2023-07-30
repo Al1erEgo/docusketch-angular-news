@@ -2,7 +2,7 @@
   "name": "docusketch-angular-news",
   "version": "0.0.0",
   "scripts": {
-    "dev-w/server": "concurrently \"npm run start\" \"npm run server\"",
+    "dev-w/server": "concurrently \"yarn start\" \"yarn server\"",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
