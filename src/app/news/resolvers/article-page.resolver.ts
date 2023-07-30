@@ -7,7 +7,7 @@ import { Article, Comment } from '../interfaces/news.interfaces'
 
 export const articlePageResolver: ResolveFn<
   { article: Article; comments: Comment[] } | undefined
-> = async (route, state) => {
+> = async route => {
   const newsService = inject(NewsService)
   const commentsService = inject(CommentsService)
   const router = inject(Router)

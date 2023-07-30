@@ -4,6 +4,7 @@ import { NewsComponent } from './components/news/news.component'
 import { CreateArticleComponent } from './components/create-article/create-article.component'
 import { ArticleComponent } from './components/article/article.component'
 import { authGuard } from '../auth/guards/auth.guard'
+import { articlePageResolver } from './resolvers/article-page.resolver'
 
 const authRoutes: Routes = [
   { path: '', component: NewsComponent },
@@ -13,7 +14,12 @@ const authRoutes: Routes = [
     pathMatch: 'full',
     canActivate: [authGuard],
   },
-  { path: ':id', component: ArticleComponent, pathMatch: 'full' },
+  {
+    path: ':id',
+    component: ArticleComponent,
+    pathMatch: 'full',
+    resolve: { article: articlePageResolver },
+  },
 ]
 
 @NgModule({

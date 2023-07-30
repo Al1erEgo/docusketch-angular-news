@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core'
-import { catchError, combineLatest, Subject, takeUntil, throwError } from 'rxjs'
+import { Subject, takeUntil } from 'rxjs'
 import { Article, Comment } from '../../interfaces/news.interfaces'
 import { NewsService } from '../../services/news.service'
 import { ActivatedRoute, Router } from '@angular/router'
@@ -35,21 +35,10 @@ export class ArticleComponent implements OnDestroy {
     private readonly commentsService: CommentsService,
     private readonly authService: AuthService
   ) {
-    combineLatest([
-      this.newsService.getArticle(this.articleId),
-      this.commentsService.getComments(this.articleId),
-    ])
-      .pipe(
-        takeUntil(this.destroy$),
-        catchError(err => {
-          void this.router.navigate(['/notfound'])
-          return throwError(err)
-        })
-      )
-      .subscribe(([article, comments]) => {
-        this.article = article
-        this.comments = comments
-      })
+    this.route.data.subscribe(({ article: { article, comments } }) => {
+      this.article = article
+      this.comments = comments
+    })
   }
 
   ngOnDestroy() {
