@@ -4,6 +4,11 @@ import { Article } from '../../interfaces/news.interfaces'
 import { debounceTime, Subject, takeUntil } from 'rxjs'
 import { FormBuilder } from '@angular/forms'
 
+const parseDate = (date: string): Date => {
+  const dateParts = date.split('.')
+  return new Date(+dateParts[2], +dateParts[1], +dateParts[0])
+}
+
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
@@ -28,7 +33,9 @@ export class NewsComponent implements OnDestroy {
       .getNews()
       .pipe(takeUntil(this.destroy$))
       .subscribe(articles => {
-        this.news = articles
+        this.news = articles.sort(
+          (a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime()
+        )
         this.newsToRender = articles
         this.categories = [
           'All',
