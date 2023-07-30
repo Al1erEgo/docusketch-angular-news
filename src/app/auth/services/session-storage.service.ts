@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { CommonAuthResponse } from '../interfaces/auth.interfaces'
+import { CommonAuthResponse } from '../interfaces'
 
 @Injectable({
   providedIn: 'root',

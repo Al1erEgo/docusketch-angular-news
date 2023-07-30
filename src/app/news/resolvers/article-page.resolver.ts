@@ -1,9 +1,8 @@
 import { ResolveFn, Router } from '@angular/router'
-import { NewsService } from '../services/news.service'
+import { CommentsService, NewsService } from '../services'
 import { inject } from '@angular/core'
-import { CommentsService } from '../services/comments.service'
 import { lastValueFrom } from 'rxjs'
-import { Article, Comment } from '../interfaces/news.interfaces'
+import { Article, Comment } from '../interfaces'
 
 export const articlePageResolver: ResolveFn<
   { article: Article; comments: Comment[] } | undefined

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { Article } from '../interfaces/news.interfaces'
+import { Article } from '../interfaces'
 
 @Injectable()
 export class NewsService {

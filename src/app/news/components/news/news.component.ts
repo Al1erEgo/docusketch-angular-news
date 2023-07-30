@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core'
-import { NewsService } from '../../services/news.service'
-import { Article } from '../../interfaces/news.interfaces'
+import { NewsService } from '../../services'
+import { Article } from '../../interfaces'
 import { debounceTime, Subject, takeUntil } from 'rxjs'
 import { FormBuilder } from '@angular/forms'
 

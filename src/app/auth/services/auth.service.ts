@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Router } from '@angular/router'
-import { CommonAuthRequest, CommonAuthResponse, User } from '../interfaces/auth.interfaces'
+import { CommonAuthRequest, CommonAuthResponse, User } from '../interfaces'
 import { Observable, tap } from 'rxjs'
 import { SessionStorageService } from './session-storage.service'
-import { NotificationService } from '../../shared/services/notification.service'
+import { NotificationService } from '../../shared/services'
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {

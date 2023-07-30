@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core'
-import { Article } from '../../interfaces/news.interfaces'
+import { Article } from '../../interfaces'
 
 @Component({
   selector: 'app-article-preview',

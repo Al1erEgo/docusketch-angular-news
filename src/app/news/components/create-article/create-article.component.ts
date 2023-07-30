@@ -1,9 +1,9 @@
 import { Component, OnDestroy } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
-import { Article } from '../../interfaces/news.interfaces'
-import { AuthService } from '../../../auth/services/auth.service'
+import { Article } from '../../interfaces'
+import { AuthService } from '../../../auth/services'
 import { NEWS_CATEGORIES } from '../../data/news-categories'
-import { NewsService } from '../../services/news.service'
+import { NewsService } from '../../services'
 import { Subject, takeUntil } from 'rxjs'
 import { Router } from '@angular/router'
 

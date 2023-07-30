@@ -2,9 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { Subject, takeUntil } from 'rxjs'
-import { CommonAuthResponse } from '../../interfaces/auth.interfaces'
-import { AuthService } from '../../services/auth.service'
-import { NotificationService } from '../../../shared/services/notification.service'
+import { CommonAuthResponse } from '../../interfaces'
+import { AuthService } from '../../services'
+import { NotificationService } from '../../../shared/services'
 
 interface AuthForm {
   email: FormControl<string>

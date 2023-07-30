@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { NewsComponent } from './components/news/news.component'
+import {
+  ArticleComponent,
+  ArticlePreviewComponent,
+  CreateArticleComponent,
+  NewsComponent,
+} from './components'
 import { NewsRoutingModule } from './news-routing.module'
-import { CreateArticleComponent } from './components/create-article/create-article.component'
-import { NewsService } from './services/news.service'
-import { ArticlePreviewComponent } from './components/article-preview/article-preview.component'
+import { CommentsService, NewsService } from './services'
 import { ReactiveFormsModule } from '@angular/forms'
-import { SearchPipe } from './pipes/search.pipe'
-import { ArticleComponent } from './components/article/article.component'
-import { CommentsService } from './services/comments.service'
+import { SearchPipe } from './pipes'
 
 @NgModule({
   declarations: [

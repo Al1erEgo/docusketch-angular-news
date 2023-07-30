@@ -1,11 +1,10 @@
 import { Component, OnDestroy } from '@angular/core'
 import { Subject, takeUntil } from 'rxjs'
-import { Article, Comment } from '../../interfaces/news.interfaces'
-import { NewsService } from '../../services/news.service'
+import { Article, Comment } from '../../interfaces'
+import { CommentsService, NewsService } from '../../services'
 import { ActivatedRoute, Router } from '@angular/router'
-import { CommentsService } from '../../services/comments.service'
 import { FormControl, FormGroup } from '@angular/forms'
-import { AuthService } from '../../../auth/services/auth.service'
+import { AuthService } from '../../../auth/services'
 
 //TODO добавить отображение пользователя-автора комментария
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { SUBSCRIPTIONS } from '../../data/subscriptions'
+import { SUBSCRIPTIONS } from '../../data'
 import { FormControl, FormGroup } from '@angular/forms'
 
 @Component({
