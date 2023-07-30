@@ -15,6 +15,7 @@ import { ApiInterceptor } from './shared/interceptors/api.interceptor'
 
 //TODO перенести компоненты которые представляют из себя страницы в папки pages в модулях
 //TODO сделать ресолвер на article
+//TODO сделать сортировку по дате
 
 export function initAuth(sessionStorage: SessionStorageService, authService: AuthService) {
   return () => (sessionStorage.getUserData() ? authService.initUser() : EMPTY)
