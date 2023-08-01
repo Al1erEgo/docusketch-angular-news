@@ -1,11 +1,11 @@
-import { Component, OnDestroy } from '@angular/core'
+import { Component } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { Article } from '../../interfaces'
 import { AuthService } from '../../../auth/services'
 import { NEWS_CATEGORIES } from '../../data/news-categories'
 import { NewsService } from '../../services'
-import { Subject, takeUntil } from 'rxjs'
 import { Router } from '@angular/router'
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 
 interface NewArticleForm {
   category: FormControl<string>
@@ -18,9 +18,8 @@ interface NewArticleForm {
   templateUrl: './create-article.component.html',
   styleUrls: ['./create-article.component.scss'],
 })
-export class CreateArticleComponent implements OnDestroy {
+export class CreateArticleComponent {
   categories = NEWS_CATEGORIES
-  destroy$ = new Subject<void>()
   newArticleForm = new FormGroup<NewArticleForm>({
     category: new FormControl('', {
       validators: [Validators.required, Validators.minLength(2)],
@@ -42,11 +41,6 @@ export class CreateArticleComponent implements OnDestroy {
     private readonly newsService: NewsService
   ) {}
 
-  ngOnDestroy() {
-    this.destroy$.next()
-    this.destroy$.complete()
-  }
-
   submitArticle() {
     if (this.newArticleForm.value.title && this.newArticleForm.value.body) {
       this.newArticleForm.disable()
@@ -61,7 +55,7 @@ export class CreateArticleComponent implements OnDestroy {
 
       let observable = this.newsService.postArticle(newArticle)
 
-      observable.pipe(takeUntil(this.destroy$)).subscribe({
+      observable.pipe(takeUntilDestroyed()).subscribe({
         next: newArticle => {
           void this.router.navigate([`/news/${newArticle.id}`])
         },

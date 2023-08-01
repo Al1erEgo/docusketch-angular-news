@@ -1,10 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
-import { Subject, takeUntil } from 'rxjs'
 import { CommonAuthResponse } from '../../interfaces'
 import { AuthService } from '../../services'
 import { NotificationService } from '../../../shared/services'
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 
 interface AuthForm {
   email: FormControl<string>
@@ -20,7 +20,7 @@ export interface Errors {
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss'],
 })
-export class AuthComponent implements OnInit, OnDestroy {
+export class AuthComponent implements OnInit {
   authType: string = ''
   title: string = ''
   authForm = new FormGroup<AuthForm>({
@@ -35,7 +35,6 @@ export class AuthComponent implements OnInit, OnDestroy {
   })
 
   errors: Errors = { errors: {} }
-  destroy$ = new Subject<void>()
 
   constructor(
     private readonly route: ActivatedRoute,
@@ -47,11 +46,6 @@ export class AuthComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.authType = this.route.snapshot.url.at(-1)!.path
     this.title = this.authType === 'login' ? 'Sign in' : 'Sign up'
-  }
-
-  ngOnDestroy() {
-    this.destroy$.next()
-    this.destroy$.complete()
   }
 
   get email() {
@@ -76,7 +70,7 @@ export class AuthComponent implements OnInit, OnDestroy {
             }
           )
 
-    observable.pipe(takeUntil(this.destroy$)).subscribe({
+    observable.pipe(takeUntilDestroyed()).subscribe({
       next: (res: CommonAuthResponse) => {
         this.notificationService.handleNotification(`Welcome ${res.user.email}`, 'success')
         void this.router.navigate(['/'])

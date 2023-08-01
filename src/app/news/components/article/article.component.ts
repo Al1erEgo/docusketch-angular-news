@@ -1,10 +1,10 @@
-import { Component, OnDestroy } from '@angular/core'
-import { Subject, takeUntil } from 'rxjs'
+import { Component } from '@angular/core'
 import { Article, Comment } from '../../interfaces'
 import { CommentsService, NewsService } from '../../services'
 import { ActivatedRoute, Router } from '@angular/router'
 import { FormControl, FormGroup } from '@angular/forms'
 import { AuthService } from '../../../auth/services'
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 
 //TODO добавить отображение пользователя-автора комментария
 
@@ -13,10 +13,9 @@ import { AuthService } from '../../../auth/services'
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.scss'],
 })
-export class ArticleComponent implements OnDestroy {
+export class ArticleComponent {
   article?: Article
   comments?: Comment[]
-  destroy$ = new Subject<void>()
   isCommentsShow: boolean = false
   isAddingComment: boolean = false
   isAuth: boolean = this.authService.isAuth
@@ -38,11 +37,6 @@ export class ArticleComponent implements OnDestroy {
       this.article = article
       this.comments = comments
     })
-  }
-
-  ngOnDestroy() {
-    this.destroy$.next()
-    this.destroy$.complete()
   }
 
   switchShowComments() {
@@ -69,7 +63,7 @@ export class ArticleComponent implements OnDestroy {
 
       let observable = this.commentsService.postComment(newComment)
 
-      observable.pipe(takeUntil(this.destroy$)).subscribe({
+      observable.pipe(takeUntilDestroyed()).subscribe({
         next: newComment => {
           this.comments?.push(newComment)
           this.newCommentForm.reset()

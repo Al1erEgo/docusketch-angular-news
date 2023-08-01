@@ -1,8 +1,9 @@
-import { Component, OnDestroy } from '@angular/core'
+import { Component } from '@angular/core'
 import { NewsService } from '../../services'
 import { Article } from '../../interfaces'
-import { debounceTime, Subject, takeUntil } from 'rxjs'
+import { debounceTime } from 'rxjs'
 import { FormBuilder } from '@angular/forms'
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 
 const parseDate = (date: string): Date => {
   const dateParts = date.split('.')
@@ -14,13 +15,11 @@ const parseDate = (date: string): Date => {
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.scss'],
 })
-export class NewsComponent implements OnDestroy {
+export class NewsComponent {
   news: Article[] = []
   newsToRender: Article[] = []
   categories: string[] = []
   currentCategory: string = 'All'
-
-  destroy$ = new Subject<void>()
 
   filterForm = this.formBuilder.group({ title: [''] })
   debouncedControl$ = this.filterForm.controls.title.valueChanges.pipe(debounceTime(500))
@@ -31,7 +30,7 @@ export class NewsComponent implements OnDestroy {
   ) {
     this.newsService
       .getNews()
-      .pipe(takeUntil(this.destroy$))
+      .pipe(takeUntilDestroyed())
       .subscribe(articles => {
         this.news = articles.sort(
           (a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime()
@@ -46,11 +45,6 @@ export class NewsComponent implements OnDestroy {
           ).values(),
         ]
       })
-  }
-
-  ngOnDestroy() {
-    this.destroy$.next()
-    this.destroy$.complete()
   }
 
   changeCategory(newCategory: string) {
